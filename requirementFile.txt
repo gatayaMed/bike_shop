@@ -1,0 +1,156 @@
+Functional Requirements
+Frontend (User-Facing)
+
+Home Page: Display featured bicycles, categories, and promotions.
+
+Product Listing Page: Show all bicycles with filters (e.g., price, type, brand).
+
+Product Detail Page: Display detailed information about a bicycle (images, description, price, availability).
+
+Shopping Cart: Allow users to add/remove items, update quantities, and view the total price.
+
+Checkout Page: Collect shipping and payment information.
+
+Login/Signup: Allow users to create accounts or log in.
+
+Order Confirmation & Invoice: Display order details and send an invoice via email.
+
+Search Functionality: Enable users to search for bicycles by name, brand, or category.
+
+Backend (Admin Dashboard)
+
+Employee Management: Add, update, or remove employee information.
+
+Product Management: Add, update, or remove bicycles and their details (e.g., stock, price, description).
+
+Order Management: View and manage orders (e.g., mark as shipped, cancel orders).
+
+Statistics & Reports:
+
+Sales statistics (e.g., daily, weekly, monthly sales).
+
+Inventory status (e.g., low stock alerts).
+
+Logistics information (e.g., shipped, delivered, pending orders).
+
+User Management: View and manage customer accounts.
+
+Database  use sqllite built in django 
+
+Store data for:
+
+Users (customers and employees).
+
+Products (bicycles, categories, stock).
+
+Orders (order details, shipping information, payment status).
+
+Invoices (order history, invoices sent).
+
+Non-Functional Requirements
+Performance: The application should handle multiple users simultaneously without slowing down.
+
+Security: Secure user data (e.g., passwords hashed, payment information encrypted).
+
+Scalability: The application should be scalable to accommodate future growth.
+
+Responsiveness: The frontend should be mobile-friendly and work on all screen sizes.
+
+2. Technology Stack
+Backend: Django (Python framework for backend logic and API).
+
+Frontend: HTML, CSS, JavaScript, Bootstrap (for responsive design).
+
+Database: sqlite (for storing data).
+
+
+
+Django REST Framework (if you want to create APIs for future mobile apps).  Everythings must be as rest api 
+
+Celery (for background tasks like sending emails).
+
+Chart.js or D3.js (for displaying statistics in the dashboard).
+
+3. Database Design
+
+
+Tables
+Users
+
+id (Primary Key)
+
+username
+
+email
+
+password (hashed)
+
+role (e.g., customer, employee, admin)
+
+Products
+
+id (Primary Key)
+
+name
+
+description
+
+price
+
+category (e.g., road bike, mountain bike)
+
+stock_quantity
+
+image_url
+
+Orders
+
+id (Primary Key)
+
+user_id (Foreign Key to Users)
+
+order_date
+
+total_price
+
+status (e.g., pending, shipped, delivered)
+
+Order_Items
+
+id (Primary Key)
+
+order_id (Foreign Key to Orders)
+
+product_id (Foreign Key to Products)
+
+quantity
+
+price
+
+Invoices
+
+id (Primary Key)
+
+order_id (Foreign Key to Orders)
+
+invoice_date
+
+total_amount
+
+sent_status (e.g., sent, pending)
+
+4. Application Structure
+Backend (Django)
+Models: Define database tables (e.g., User, Product, Order).
+
+Views: Handle business logic (e.g., processing orders, managing products).
+
+
+APIs: Create RESTful APIs for the frontend to interact with the backend ( recommended).
+
+Frontend
+HTML: Structure of the pages (e.g., home, cart, checkout).
+
+CSS/Bootstrap: Styling and responsiveness.
+
+JavaScript: Dynamic interactions (e.g., add to cart, update quantities). use fetch api and don´t use await ans async 
